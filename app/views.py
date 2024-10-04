@@ -400,7 +400,7 @@ def get_document_link(document_id):
     }
 })
 def query_document(document_id):
-    Conversation.clear_expired_conversations()
+    # Conversation.clear_expired_conversations()
     try:
         email = request.headers.get('userEmail')
         username = request.headers.get('userName')
