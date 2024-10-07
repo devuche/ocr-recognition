@@ -28,7 +28,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['SWAGGER'] = {
     'title': 'Optical Character Recognition API',
-    'description': 'Welcome to the Optical Character Recognition collection. This collection provides a comprehensive set of endpoints designed for upload, retrieval and summarization of documents. Powered by advanced natural language processing capabilities of GPT-4 and azure document intelligence, the API features an intelligent bot that enhances and summarizes user uploaded documents.',
+    'description': 'Welcome to the Optical Character Recognition collection. This collection provides a comprehensive set of endpoints designed for upload, retrieval and summarization of documents. Powered by advanced natural language processing capabilities of GPT-4 and azure document intelligence, the API features an intelligent bot that enhances and summarizes user uploaded documents. Presented by Uchenna Nnamani, a software engineer with a passion for AI and machine learning.',
     'uiversion': 3,
     'version': '1.0.0'
 }
