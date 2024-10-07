@@ -15,4 +15,4 @@ if __name__ == '__main__':
     container_client = blob_service_client.get_container_client(container_name)
     if not container_client.exists():
         container_client.create_container()
-    socketio.run(app, host='0.0.0.0', port=8000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=8000, debug=True, allow_unsafe_werkzeug=True)
