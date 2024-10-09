@@ -188,6 +188,12 @@ def get_documents():
     'description': 'Get a specific document uploaded by the user',
     'parameters': [
         {
+            'name': 'userEmail',
+            'in': 'header',
+            'type': 'string',
+            'required': True,
+        },
+        {
             'name': 'document_id',
             'in': 'path',
             'type': 'integer',
