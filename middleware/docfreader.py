@@ -187,6 +187,5 @@ def generate_subject(input):
         logger.error(f"Error querying ChatGPT: {e}")
         return "Error", 500
 # print(intelligent_response("what is the hr leave policy"))
-# search_internet('who is the president of china', 'b9614731ee9247538bc8ec1f1da28036')
 
 
