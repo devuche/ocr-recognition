@@ -15,14 +15,15 @@ class Documents(db.Model):
 
 class Conversation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.String(100), nullable=False)
     conversation_id = db.Column(db.String(100), nullable=False, unique=True)
     user_id = db.Column(db.String(100), nullable=False)
-    document_id = db.Column(db.Integer, db.ForeignKey('documents.id'), nullable=False)
+    # document_id = db.Column(db.Integer, db.ForeignKey('documents.id'), nullable=False)
     username = db.Column(db.String(100), nullable=False)
     content = db.Column(db.JSON, nullable=False)
     accessed_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    document = db.relationship('Documents', backref=db.backref('conversations', lazy=True))
+    # document = db.relationship('Documents', backref=db.backref('conversations', lazy=True))
     @classmethod
     def update_access_time(self):
         self.accessed_at = datetime.utcnow()
