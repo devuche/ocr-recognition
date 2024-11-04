@@ -589,12 +589,66 @@ def get_queries():
             return jsonify({"message": "No conversations found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-from sqlalchemy.exc import ProgrammingError
-@views.route("/delete-table", methods=['DELETE'])
-def escalate():
+    
+@views.route('/update-conversation-subject/<string:conversation_id>', methods=['PUT'])
+@swag_from({
+    'tags': ['Chatbot'],
+    'description': 'Update the subject of a specific conversation',
+    'parameters': [
+        {
+            'name': 'conversation_id',
+            'in': 'path',
+            'type': 'string',
+            'required': True,
+            'description': 'ID of the conversation to update'
+        },
+        {
+            'name': 'userEmail',
+            'in': 'header',
+            'type': 'string',
+            'required': True,
+            'description': 'Email of the user making the request'
+        },
+        {
+            'name': 'subject',
+            'in': 'body',
+            'type': 'string',
+            'required': True,
+            'description': 'New subject for the conversation'
+        }
+    ],
+    'responses': {
+        200: {
+            'description': 'Conversation subject updated successfully'
+        },
+        404: {
+            'description': 'Conversation not found'
+        },
+        500: {
+            'description': 'Internal server error'
+        }
+    }
+})
+def update_conversation_subject(conversation_id):
     try:
-        Documents.__table__.drop(db.engine)
-        Conversation.__table__.drop(db.engine)       
-        return jsonify({'message': 'Table dropped successfully'})
-    except ProgrammingError:
-        return jsonify({'message': 'Table does not exist'})
+        userEmail = request.headers.get('userEmail')
+        subject = request.json.get('subject')
+        conversation = Conversation.query.filter_by(conversation_id=conversation_id, user_id=userEmail).first()
+        if conversation:
+            conversation.subject = subject
+            db.session.commit()
+            return jsonify({"message": "Conversation subject updated successfully"}), 200
+        else:
+            return jsonify({"message": "Conversation not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# from sqlalchemy.exc import ProgrammingError
+# @views.route("/delete-table", methods=['DELETE'])
+# def escalate():
+#     try:
+#         Documents.__table__.drop(db.engine)
+#         Conversation.__table__.drop(db.engine)       
+#         return jsonify({'message': 'Table dropped successfully'})
+#     except ProgrammingError:
+#         return jsonify({'message': 'Table does not exist'})

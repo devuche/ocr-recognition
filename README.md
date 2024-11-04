@@ -79,6 +79,9 @@ This project is an Optical Character Recognition (OCR) system that allows users 
 - **Upload Document**: Use the `/upload-document` endpoint to upload a document.
 - **Get Documents**: Use the `/documents` endpoint to retrieve all documents uploaded by a user.
 - **Analyze Document**: Use the `/analyze-document` endpoint to extract text from a document.
+- **Query**: Use the `/query` endpoint to query the chatbot
+- **Get Query**: Use the `/query` or `/query/<string:conversation_id>` endpoint to get one or more queries
+- **Delete Query**: Use the `/query/<string:conversation_id>` endpoint to delete a query
 
 ## API Documentation
 API documentation is available via Swagger. Access it at `http://localhost:8000/apidocs`.
