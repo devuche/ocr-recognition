@@ -81,6 +81,7 @@ This project is an Optical Character Recognition (OCR) system that allows users 
 - **Analyze Document**: Use the `/analyze-document` endpoint to extract text from a document.
 - **Query**: Use the `/query` endpoint to query the chatbot
 - **Get Query**: Use the `/query` or `/query/<string:conversation_id>` endpoint to get one or more queries
+- **Update Conversation Subject**: Use the `/update-conversation-subject/<string:conversation_id>` endpoint to update a query subject
 - **Delete Query**: Use the `/query/<string:conversation_id>` endpoint to delete a query
 
 ## API Documentation
