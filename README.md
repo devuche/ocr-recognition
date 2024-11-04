@@ -13,6 +13,7 @@ This project is an Optical Character Recognition (OCR) system that allows users 
 ## Technologies Used
 - **Flask**: Web framework for building the API.
 - **SQLAlchemy**: ORM for database interactions.
+- **Azure PostgreSQL for Flexible Servers**: For the database
 - **Azure Cognitive Services**: For OCR and text extraction.
 - **OpenAI GPT-4**: For natural language processing.
 - **Swagger**: API documentation.
